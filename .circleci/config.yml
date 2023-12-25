@@ -1,0 +1,14 @@
+version: 2.1
+
+workflows:
+  build-workflow:
+    jobs:
+      - ci-runner
+jobs:
+  ci-runner:
+    machine: true
+    resource_class: cci-vl8/circleci-runner
+    working_directory: ~/blog.steevehook.com-data
+    steps:
+      - checkout
+      - run: ./generate.sh
